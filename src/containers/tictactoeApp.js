@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
-// import Counter from '../components/counter';
+import Tictactoe from '../components/mainComponent';
 import * as tictactoeActions from '../actions/tictactoeActions';
 import { connect } from 'react-redux';
 import {
@@ -20,9 +20,7 @@ class TictactoeApp extends Component {
   render() {
     const { state, actions } = this.props;
     return (
-      <View style={{flex: 1}}>
-       <Text>Blah blah blah</Text>
-      </View>
+      <Tictactoe />
     );
   }
 }
