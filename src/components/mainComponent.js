@@ -5,27 +5,33 @@
  */
 
 import React, { Component } from 'react';
+import Login from './login';
 import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  Platform,
+  TouchableHighlight,
+  TouchableNativeFeedback,
+  TouchableOpacity
 } from 'react-native';
 
 export default class Tictactoe extends Component {
+  onPress(elememnt) {
+    console.log('here am i')
+  }
   render() {
+    let TouchableElement = TouchableHighlight;
+    if (Platform.OS === 'android') {
+     TouchableElement = TouchableNativeFeedback;
+    }
     return (
-      <View style={styles.container}>
+      <View style={styles.container} shouldRasterizeIOS={true} renderToHardwareTextureAndroid={true}>
         <Text style={styles.welcome}>
-          TicTacToe
+          SEB
         </Text>
-        <Text style={styles.header}>
-          Knock knock, who's there ?
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
+        <Login />
       </View>
     );
   }
@@ -36,7 +42,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-start',
     alignItems: 'center',
-    backgroundColor: '#FFAFB4',
+    backgroundColor: '#e6e6e6',
   },
   welcome: {
     fontSize: 20,
@@ -51,7 +57,6 @@ const styles = StyleSheet.create({
   header: {
     textAlign: 'center',
     color: '#000',
-    marginBottom: 25,
     fontWeight: 'bold'
-  },
+  }
 });
