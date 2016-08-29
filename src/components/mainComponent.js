@@ -5,6 +5,7 @@
  */
 
 import React, { Component } from 'react';
+import Header from './header';
 import Login from './login';
 import {
   AppRegistry,
@@ -22,41 +23,24 @@ export default class Tictactoe extends Component {
     console.log('here am i')
   }
   render() {
-    let TouchableElement = TouchableHighlight;
-    if (Platform.OS === 'android') {
-     TouchableElement = TouchableNativeFeedback;
-    }
     return (
-      <View style={styles.container} shouldRasterizeIOS={true} renderToHardwareTextureAndroid={true}>
-        <Text style={styles.welcome}>
-          SEB
-        </Text>
+      <View style={styles.container}>
+        <Header />
         <Login />
       </View>
     );
   }
 }
-
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    backgroundColor: '#e6e6e6',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 50,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-  header: {
-    textAlign: 'center',
-    color: '#000',
-    fontWeight: 'bold'
-  }
+    welcome: {
+        fontSize: 20,
+        textAlign: 'center',
+        margin: 50,
+    },
+    container: {
+        flex: 1,
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        backgroundColor: '#e6e6e6',
+    },
 });

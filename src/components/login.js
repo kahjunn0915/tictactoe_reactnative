@@ -3,18 +3,17 @@ import {
   StyleSheet,
   TextInput,
   TouchableHighlight,
-  ActivityIndicatorIOS,
+  ActivityIndicator,
   AsyncStorage,
   Text,
   View
 } from 'react-native';
-
+import Spinner from 'react-native-loading-spinner-overlay';
 const ACCESS_TOKEN = 'access_token';
 
 export default class Login extends Component {
   constructor(){
     super();
-
     this.state = {
       email: "",
       password: "",
@@ -74,18 +73,24 @@ export default class Login extends Component {
     // }
   }
   render() {
+    console.log(this.state)
     return (
       <View style={styles.container}>
-        <TextInput
-          onChangeText={ (text)=> this.setState({email: text}) }
-          style={styles.input} placeholder="Email">
-        </TextInput>
-        <TextInput
-          onChangeText={ (text)=> this.setState({password: text}) }
-          style={styles.input}
-          placeholder="Password"
-          secureTextEntry={true}>
-        </TextInput>
+        <View style={styles.inputBox}>
+          <TextInput
+            onChangeText={ (text)=> this.setState({email: text}) }
+            style={styles.input}
+            placeholder="Email">
+          </TextInput>
+        </View>
+        <View style={styles.inputBox}>
+          <TextInput
+            onChangeText={ (text)=> this.setState({password: text}) }
+            style={styles.input}
+            placeholder="Password"
+            secureTextEntry={true}>
+          </TextInput>
+        </View>
         <TouchableHighlight onPress={this.onLoginPressed.bind(this)} style={styles.button}>
           <Text style={styles.buttonText}>
             Login
@@ -95,8 +100,7 @@ export default class Login extends Component {
         <Text style={styles.error}>
           {this.state.error}
         </Text>
-
-        <ActivityIndicatorIOS animating={this.state.showProgress} size="large" style={styles.loader} />
+        <Spinner style={styles.loader} visible={this.state.showProgress} hidesWhenStopped={true} size="large" color={'#60cd18'}/>
       </View>
     );
   }
@@ -117,8 +121,12 @@ const styles = StyleSheet.create({
     marginTop: 10,
     padding: 4,
     fontSize: 18,
-    borderWidth: 1,
-    borderColor: '#60cd18'
+  },
+  inputBox: {
+    height: 50,
+    width: 300,
+    borderBottomWidth: 1,
+    borderBottomColor: '#60cd18'
   },
   button: {
     height: 50,
