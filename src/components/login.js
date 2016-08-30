@@ -80,20 +80,12 @@ export default class Login extends Component {
           <TextInput
             onChangeText={ (text)=> this.setState({email: text}) }
             style={styles.input}
-            placeholder="Email">
-          </TextInput>
-        </View>
-        <View style={styles.inputBox}>
-          <TextInput
-            onChangeText={ (text)=> this.setState({password: text}) }
-            style={styles.input}
-            placeholder="Password"
-            secureTextEntry={true}>
+            placeholder="Username">
           </TextInput>
         </View>
         <TouchableHighlight onPress={this.onLoginPressed.bind(this)} style={styles.button}>
           <Text style={styles.buttonText}>
-            Login
+            Start
           </Text>
         </TouchableHighlight>
 
