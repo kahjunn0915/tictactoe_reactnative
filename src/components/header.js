@@ -23,7 +23,6 @@ export default class Header extends Component {
                   </TextInput>
                 </View>
               </View>
-
               </View>
         )
     }
