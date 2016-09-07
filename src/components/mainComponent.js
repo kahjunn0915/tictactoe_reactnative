@@ -6,7 +6,6 @@
 
 import React, { Component } from 'react';
 import Header from './header';
-import Login from './login';
 import {
   AppRegistry,
   StyleSheet,
@@ -26,7 +25,6 @@ export default class Tictactoe extends Component {
     return (
       <View style={styles.container}>
         <Header />
-        <Login />
       </View>
     );
   }

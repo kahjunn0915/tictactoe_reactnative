@@ -132,17 +132,6 @@ const styles = StyleSheet.create({
     color: '#FFF',
     alignSelf: 'center'
   },
-  heading: {
-    fontSize: 30,
-  },
-  error: {
-    color: 'red',
-    paddingTop: 10
-  },
-  success: {
-    color: 'green',
-    paddingTop: 10
-  },
   loader: {
     marginTop: 20
   }
